@@ -20,4 +20,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.loginOrSignup, name="loginOrSignup"),
+    path('signedUp', views.signedUp, name = "signedUp"),
+    path('signedIn', views.signedIn, name = "signedIn")
 ]

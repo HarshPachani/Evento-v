@@ -47,9 +47,9 @@ def signedIn(request):
     try:
         auth.sign_in_with_email_and_password(email, password)
     except:
-        message = "Wrong email id or password"
-        return render(request, 'index.html', {"message": message})
-    
+        error = "Wrong email id or password"
+        return render(request, 'index.html', {"error": error})
+        # return redirect("/", {"message": message})
     message = "Welcome to Evento-v!"
 
     return render(request, "index.html", {"message": message})

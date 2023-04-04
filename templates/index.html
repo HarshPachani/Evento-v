@@ -1,13 +1,144 @@
-{% if message %} 
+{% if message %}
+<script>
+  alert('{{message}}')
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Demo</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+    ></script>
+    {% comment %}
+    <link href="./index.css" rel="stylesheet" />
+    {% endcomment %}
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+      body {
+        background: #f8f8f8;
+      }
+
+      
+      *,  
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .custom-field {
+        position: relative;
+        font-size: 14px;
+        padding-top: 20px;
+        margin-top: 5px;
+      }
+
+      .custom-field input {
+        padding: 12px;
+        width: 300px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1.5px solid gray;
+        outline-color: deepskyblue;
+      }
+
+      .custom-field .placeholder {
+        position: absolute;
+        left: 12px;
+        top: calc(50% + 10px);
+        transform: translateY(-50%);
+        color: #aaa;
+        transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+      }
+
+      .custom-field input:valid + .placeholder,
+      .custom-field input:focus + .placeholder {
+        top: 21px;
+        font-size: 10px;
+        color: #222;
+        padding: 5px;
+        background: white;
+      }
+
+      .message {
+        font-size: 70px;
+        font-family: "Ubuntu", sans-serif;
+        color: steelblue;
+      }
+
+      .success {
+        font-size: 18px;
+        margin-top: 15px;
+        color: seagreen;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .hidden{
+        display: none;
+      }
+    </style>
+    
+{% if error %}
 <style>
-  body{
-      background-color: black;
-      color: white;
+  .hidden{
+    display: block;
   }
 </style>
+{% endif %}
+
+  </head>
+  <body class="d-flex justify-content-center p-5">
+    <div class="card">
+      <div class="card-header">
+        <center><h3>Login Form</h3></center>
+      </div>
+      <form id="loginform" class="card-body px-5 py-4" action = "postSignIn" method = "post">
+        {% csrf_token %}
+        <label class="custom-field">
+          <input type="email" id="email" name ="email" class="input" required />
+          <span class="placeholder">Email Id</span> </label
+        ><br />
+        <label class="custom-field">
+          <input type="password" id="password" name = "password" class="input" required />
+          <span class="placeholder">Password</span> </label
+        ><br /><br />
+        <p class = "hidden" style="color: red">Wrong Email or Password!</p>
+        <center>
+          <input type="submit" class = "btn btn-primary">
+        </center>
+      </form>
+    </div>
+
+    <!-- <script>
+      import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    </script>
+    <script src="firebase.js"></script>
+    <script src="index.js"></script> -->
+  </body>
+</html>
+{% comment %} {% if message %}
+<body>
+  <h3>Wrong wrong wrong</h3>
+</body>
 
 <script>
-    alert('{{ message }}');
+  alert("{{ message }}");
 </script>
 {% endif %}
 
@@ -32,7 +163,6 @@
       /* ===== Google Font Import - Poformsins ===== */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-      
       * {
         margin: 900;
         padding: 0;
@@ -214,7 +344,7 @@
         margin: 0;
       }
 
-      .wrong{
+      .wrong {
         display: none;
       }
     </style>
@@ -226,10 +356,10 @@
         <div class="form login">
           <span class="title">Login</span>
 
-          <form action="postSignIn" method = "post">
+          <form action="postSignIn" method="post">
             {% csrf_token %}
             <div class="input-field">
-              <input type="text" placeholder="Email" name = "email" required />
+              <input type="text" placeholder="Email" name="email" required />
               <i class="uil uil-envelope icon"></i>
             </div>
 
@@ -238,7 +368,7 @@
                 type="password"
                 class="password"
                 placeholder="Password"
-                name = "password"
+                name="password"
                 required
               />
               <i class="uil uil-lock icon"></i>
@@ -277,7 +407,7 @@
           <p style="text-align: center">or</p>
           <div class="sign-up-g">
             <a href="#"
-               ><!--<img
+              ><!--<img
               style="
                 display: block;
                 width: 50%;
@@ -290,16 +420,16 @@
             </a>
           </div>
 
-          <form action="postSignUp" method = "post">
+          <form action="postSignUp" method="post">
             {% csrf_token %}
             <div class="input-field">
-              <input type="text" name = "name" placeholder="Full Name" required />
+              <input type="text" name="name" placeholder="Full Name" required />
               <i class="uil uil-user"></i>
             </div>
             <div class="input-field">
               <input
                 class="monum"
-                name = "mobile"
+                name="mobile"
                 type="number"
                 placeholder="Phone Number"
                 required
@@ -307,13 +437,13 @@
               <i class="uil uil-phone"></i>
             </div>
             <div class="input-field">
-              <input type="email" name = "email" placeholder="Email" required />
+              <input type="email" name="email" placeholder="Email" required />
               <i class="uil uil-envelope icon"></i>
             </div>
             <div class="input-field">
               <input
                 type="password"
-                name = "password"
+                name="password"
                 class="password"
                 placeholder="Password"
                 required
@@ -395,3 +525,4 @@
     <!-- <script src="script.js"></script> -->
   </body>
 </html>
+{% endcomment %}

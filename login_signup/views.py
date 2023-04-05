@@ -34,11 +34,8 @@ def signedUp(request):
             message = "Account Already Exists"
             return render(request, "index.html", {"message": message})            
     else:
-        message = "Password and confirm password doesn't match"
-        return render(request, "index.html", {"message": message})
-    
-    message = "Account Created Successfully!"
-    return render(request, "index.html", {"message": message})
+        error = "Password and confirm password doesn't match"
+        return render(request, "index.html", {"error": error})
 
 def signedIn(request):
     email = request.POST.get("email")

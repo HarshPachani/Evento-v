@@ -1,10 +1,4 @@
-{% if message %}
-<script>
-  alert('{{message}}')
-</script>
-{% endif %}
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -118,29 +112,20 @@
           <input type="password" id="password" name = "password" class="input" required />
           <span class="placeholder">Password</span> </label
         ><br /><br />
-        <p class = "hidden" style="color: red">Wrong Email or Password!</p>
+        
         <center>
           <input type="submit" class = "btn btn-primary">
         </center>
       </form>
     </div>
 
-    <!-- <script>
+    <script>
       import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
     </script>
     <script src="firebase.js"></script>
     <script src="index.js"></script> -->
-  </body>
-</html>
-{% comment %} {% if message %}
-<body>
-  <h3>Wrong wrong wrong</h3>
-</body>
-
-<script>
-  alert("{{ message }}");
-</script>
-{% endif %}
+  <!--</body>
+</html> -->
 
 <!DOCTYPE html>
 <!-- === Coding by CodingLab | www.codinglabweb.com === -->
@@ -344,10 +329,20 @@
         margin: 0;
       }
 
-      .wrong {
+      .hidden{
         display: none;
       }
     </style>
+
+    {% if error %}
+    <style>
+      .hidden{
+        display: block;
+        text-align: center;
+      }
+    </style>
+    {% endif %}
+
     <title>Login & Registration Form</title>
   </head>
   <body>
@@ -372,7 +367,7 @@
                 required
               />
               <i class="uil uil-lock icon"></i>
-              <i class="uil uil-eye-slash showHidePw"></i>
+              <i class="uil uil-eye-slash showHidePw"   ></i>
             </div>
 
             <div class="checkbox-text">
@@ -384,9 +379,7 @@
               <a href="forget-pwd.html" class="text">Forgot password?</a>
             </div>
 
-            <div class="wrong">
-              <h6>Invalid email id or password!</h6>
-            </div>
+            <p class = "hidden" style="color: red">Invalid Email id or Password!</p>
 
             <div class="input-field button">
               <input type="submit" value="LOG IN" />
@@ -471,6 +464,8 @@
               </div>
             </div>
 
+            <p class = "hidden" style = "color: red;">Password and ConfirmPassword Doesn't match</p>
+
             <div class="input-field button">
               <input type="submit" value="SIGN UP" />
             </div>
@@ -522,7 +517,11 @@
         container.classList.remove("active");
       });
     </script>
+    {% if message %}
+    <script>
+      alert('{{message}}')
+    </script>
+    {% endif %}
     <!-- <script src="script.js"></script> -->
   </body>
 </html>
-{% endcomment %}

@@ -56,9 +56,10 @@ def forgetPwd(request):
 
 def resetPwd(request):
     email = request.POST.get("email")
-    # try:
-    #     link = auth.send_password_reset_email
-    # except:
-    #     error = "error"
-    #     return render(request, "forget-pwd.html", {error: error})
-    return render(request, "forget-pwd.html")
+    try:
+        auth.send_password_reset_email(email)
+        message = "An email of reset Password has been sent Successfully!"
+        return render(request, "forget-pwd.html", {"message": message})
+    except:
+        error = "error"
+        return render(request, "forget-pwd.html", {"error": error})

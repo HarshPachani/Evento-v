@@ -147,7 +147,7 @@
         .hidden{
             text-align: center;
             color: red;
-            display: hidden;
+            display: none;
         }
     </style>
 
@@ -191,6 +191,11 @@
         </div>
     </div>
     <!-- Forget Password Form END -->
+    {% if message %}
+    <script>
+      alert('{{message}}')
+    </script>
+    {% endif %}
 </body>
 
 </html>

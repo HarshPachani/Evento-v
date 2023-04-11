@@ -143,7 +143,21 @@
         .button input:hover {
             background-color: #35b5ab;
         }
+
+        .hidden{
+            text-align: center;
+            color: red;
+            display: hidden;
+        }
     </style>
+
+    {% if error %}
+    <style>
+        .hidden{
+            display: block;
+        }
+    </style>
+    {% endif %}
 </head>
 
 <body>
@@ -155,12 +169,14 @@
                 <span class="title">Forget Password</span>
                 <p>Enter your user account's verified email address and we will send you a password reset link.</p>
 
-                <form action="#">
+                <form action="resetPwd" method = "post">
+                    {% csrf_token %}
                     <div class="input-field">
-                        <input type="text" placeholder="Email" required>
+                        <input type="text" placeholder="Email" name = "email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
 
+                    <div class = "hidden">Email Id doesn't exist!</div>
                     <div class="input-field button">
                         <input type="submit" value="Send reset link">
                     </div>
@@ -168,7 +184,7 @@
 
                 <div class="login-signup">
                     <span class="text">Go back to Login?
-                        <a href="postSignUp" class="text signup-link">Log-in</a>
+                        <a href="/" class="text signup-link">Log-in</a>
                     </span>
                 </div>
             </div>

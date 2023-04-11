@@ -53,3 +53,12 @@ def signedIn(request):
 
 def forgetPwd(request):
     return render(request, 'forget-pwd.html')
+
+def resetPwd(request):
+    email = request.POST.get("email")
+    # try:
+    #     link = auth.send_password_reset_email
+    # except:
+    #     error = "error"
+    #     return render(request, "forget-pwd.html", {error: error})
+    return render(request, "forget-pwd.html")

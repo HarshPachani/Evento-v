@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+
+        .template {
+            border-radius: 20px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .row1 {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .details{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .monthDate{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .status, .hiring{
+            color: green;
+        }
+
+        .vl {
+            margin-top: 8px;
+            border-left: 1px solid rgba(128, 128, 128, 0.301);
+            height: 90px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% for i in "str" %}
+        <div class="row1">
+            
+
+            <div class="template">
+                <div class="image">
+                    <img src="{% static '1.jpg' %}" alt="Event">
+                </div>
+
+                <div class="details">
+                    <div class="monthDate">
+                        <div style="color: red; font-weight: 600;">APR</div>
+                        <div>23</div>
+                    </div>
+
+                    <div class="vl"></div>
+
+                    <div class="name_status">
+                        <h2 class="name">The Metal Fest - 2023</h2>
+                        <div class="status">Ongoing</div>
+                        <div class="hiring">Hiring Volunteers</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template">
+                <div class="image">
+                    <img src="{% static '1.jpg' %}" alt="Event">
+                </div>
+
+                <div class="details">
+                    <div class="monthDate">
+                        <div style="color: red; font-weight: 600;">APR</div>
+                        <div>23</div>
+                    </div>
+
+                    <div class="vl"></div>
+
+                    <div class="name_status">
+                        <h2 class="name">The Metal Fest - 2023</h2>
+                        <div class="status">Ongoing</div>
+                        <div class="hiring">Hiring Volunteers</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template">
+                <div class="image">
+                    <img src="{% static '1.jpg' %}" alt="Event">
+                </div>
+
+                <div class="details">
+                    <div class="monthDate">
+                        <div style="color: red; font-weight: 600;">APR</div>
+                        <div>23</div>
+                    </div>
+
+                    <div class="vl"></div>
+
+                    <div class="name_status">
+                        <h2 class="name">The Metal Fest - 2023</h2>
+                        <div class="status">Ongoing</div>
+                        <div class="hiring">Hiring Volunteers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if message %}
+    <script>
+      alert('{{message}}')
+    </script>
+    {% endif %}
+
+</body>
+
+</html>

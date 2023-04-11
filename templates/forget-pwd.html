@@ -1,41 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="forget-pwd.css">
+    <!-- <link rel="stylesheet" href="forget-pwd.css"> -->
+    <style>
+        /* ===== Google Font Import - Poformsins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 900;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 98vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f2f3f6;
+        }
+
+        .container {
+            position: relative;
+            max-width: 430px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 0 20px;
+        }
+
+        .container .forms {
+            display: flex;
+            align-items: center;
+            height: max-content;
+            width: 200%;
+            transition: height 0.2s ease;
+        }
+
+        .container .form {
+            width: 50%;
+            padding: 30px;
+            background-color: #fff;
+            transition: margin-left 0.18s ease;
+        }
+
+        .container .form .title {
+            position: relative;
+            font-size: 27px;
+            font-weight: 600;
+        }
+
+        .form .title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 25px;
+        }
+
+        .form .input-field {
+            position: relative;
+            height: 32px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .input-field input {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0 35px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-bottom: 2px solid #ccc;
+            border-top: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .input-field input:is(:focus, :valid) {
+            border-bottom-color: #35b5ab;
+        }
+
+        .input-field i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 23px;
+            transition: all 0.2s ease;
+        }
+
+        .input-field input:is(:focus, :valid)~i {
+            color: #35b5ab;
+        }
+
+        .input-field i.icon {
+            left: 0;
+        }
+
+        .form .text {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form a.text {
+            color: #35b5ab;
+            text-decoration: none;
+        }
+
+        .form a:hover {
+            text-decoration: underline;
+        }
+
+        .form .button {
+            margin-top: 35px;
+        }
+
+        .form .button input {
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            background-color: #35b5ad;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button input:hover {
+            background-color: #35b5ab;
+        }
+    </style>
 </head>
+
 <body>
-    
-            <!-- Forget Password Form START-->
-            <div class="container">
-                <div class="forms">
-                    <div class="form forget">
-                        <span class="title">Forget Password</span>
-                        <p>Enter your user account's verified email address and we will send you a password reset link.</p>
-        
-                        <form action="#">
-                            <div class="input-field">
-                                <input type="text" placeholder="Email" required>
-                                <i class="uil uil-envelope icon"></i>
-                            </div>
-        
-                            <div class="input-field button">
-                                <input type="button" value="Send reset link">
-                            </div>
-                        </form>
-        
-                        <div class="login-signup">
-                            <span class="text">Go back to Login?
-                                <a href="index.html" class="text signup-link">Log-in</a>
-                            </span>
-                        </div>
+
+    <!-- Forget Password Form START-->
+    <div class="container">
+        <div class="forms">
+            <div class="form forget">
+                <span class="title">Forget Password</span>
+                <p>Enter your user account's verified email address and we will send you a password reset link.</p>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Email" required>
+                        <i class="uil uil-envelope icon"></i>
                     </div>
+
+                    <div class="input-field button">
+                        <input type="submit" value="Send reset link">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Go back to Login?
+                        <a href="postSignUp" class="text signup-link">Log-in</a>
+                    </span>
                 </div>
             </div>
-            <!-- Forget Password Form END -->
+        </div>
+    </div>
+    <!-- Forget Password Form END -->
 </body>
+
 </html>

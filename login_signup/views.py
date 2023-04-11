@@ -49,4 +49,7 @@ def signedIn(request):
         # return redirect("/", {"message": message})
     message = "Welcome to Evento-v!"
 
-    return render(request, "index.html", {"message": message})
+    return render(request, "welcome.html", {"message": message})
+
+def forgetPwd(request):
+    return render(request, 'forget-pwd.html')
